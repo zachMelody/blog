@@ -1,0 +1,35 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+html, body{
+    height:100%;
+    overflow:hidden;
+}
+.nav{
+    position: relative;
+    border-right: #350841 2px solid;
+    background-color: #122b40;
+    width: 200px;
+    height: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+.nav ul{
+    position: absolute;
+}
+.nav a{
+    margin-top: 20px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.content{
+    float: left;
+    margin-left: 200px;
+    padding: 50px;
+    background-color: #8eb4cb;
+}
