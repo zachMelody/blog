@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('web');
+        $this->middleware(['web', 'auth']);
     }
 
     public function index()

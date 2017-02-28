@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <a href="{{ url('admin/index') }}">管理面板</a>
                 </div>
             </div>
         </div>

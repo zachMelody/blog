@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'article'], function () {
+
+    Route::any('', 'ArticleController@index');
+    Route::any('detail/{id}', 'ArticleController@detail');
+
+
+});
+
 Route::group(['prefix' => 'admin'], function () {
 
     Route::any('index', 'AdminController@index');
@@ -24,7 +32,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 });
 
-//    Route::get('/login',);
+
+
+    Route::get('/login');
 
 
 
