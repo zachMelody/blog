@@ -5,8 +5,8 @@
         <h1>{{ $article->title }}</h1>
         <h3>{{ $article->author }} {{date('Y-m-d H:i:s', $article->created_at) }}</h3>
         <p>{{ $article->content }}</p>
-        {{ Request::getRequestUri() }}
     </div>
-    @include('layouts.duoshuo')
+    {{--@include('layouts.duoshuo')--}}
+    @include('layouts.comment')
     @stop
 

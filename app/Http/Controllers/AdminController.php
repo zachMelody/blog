@@ -17,9 +17,7 @@ class AdminController extends Controller
     {
         $articles = Article::paginate(4);
 
-        return view('admin.index', [
-            'articles' => $articles
-        ]);
+        return view('admin.index', ['articles' => $articles]);
     }
 
     public function add(Request $request)
@@ -28,23 +26,18 @@ class AdminController extends Controller
         if ($request->isMethod('POST')) {
 
             $this->validate($request, [
-                'article.title' => 'min:1|max:100',
-                'article.author' => 'min:1|max:100',
-                'article.title' => 'min:1'
+                'title' => 'max:100|required',
+                'author' => 'required|max:100',
+                'content' => 'required'
             ],[],[
-                'article.title' => '标题',
-                'article.author' => '作者',
-                'article.content' => '内容'
+                'title' => '标题',
+                'author' => '作者',
+                'content' => '内容'
             ]);
 
-            $data = $request->input('article');
-            $article = new Article();
-            $article->title = $data['title'];
-            $article->author = $data['author'];
-            $article->content = $data['content'];
 
-            if ($article->save()) {
-                return redirect('admin/index')->with('success','创建成功');
+            if (Article::create(request()->all())) {
+                return redirect('admin/')->with('success','创建成功');
             } else {
                 return redirect()->back();
             }
@@ -54,19 +47,19 @@ class AdminController extends Controller
         return view('admin.add');
     }
 
-    public function modify(Request $request,$id)
+    public function modify(Request $request,Article $article)
     {
-        $article = Article::find($id);
 
         if ($request->isMethod('POST')) {
+
             $this->validate($request, [
-                'article.title' => 'min:1|max:100',
-                'article.author' => 'min:1|max:100',
-                'article.title' => 'min:1'
-            ], [], [
-                'article.title' => '标题',
-                'article.author' => '作者',
-                'article.content' => '内容'
+                'title' => 'max:100|required',
+                'author' => 'required|max:100',
+                'content' => 'required'
+            ],[],[
+                'title' => '标题',
+                'author' => '作者',
+                'content' => '内容'
             ]);
 
             $data = $request->input('article');
@@ -86,10 +79,9 @@ class AdminController extends Controller
 
     }
 
-    public function delete($id)
+    public function delete(Article $article)
     {
 
-        $article = Article::find($id);
 
         if ($article->delete()) {
             return redirect('admin/index')->with('success', '删除成功');

@@ -23,12 +23,12 @@
     ];
 });*/
 
-$factory->define(App\Article::class, function (Faker\Generator $faker) {
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'title' => $faker->title,
-        'author' => $faker->name,
-        'content' => $faker->paragraph($nbSentences = 7, $variableNbSentences = true),
+        'article_id' => $faker->numberBetween(15,30),
+        'user_id' => $faker->numberBetween(2,10),
+        'body' => $faker->paragraph($nbSentences = 2, $variableNbSentences = true),
     ];
 });

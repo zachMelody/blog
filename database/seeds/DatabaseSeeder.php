@@ -17,15 +17,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-        $this->call('PostTableSeeder');
+        $this->call('CommentTableSeeder');
     }
 
 }
 
-class PostTableSeeder extends Seeder
+class CommentTableSeeder extends Seeder
 {
     public function run()
     {
-        factory(App\Article::class, 20)->create();
+        factory(App\Comment::class, 20)->create();
     }
 }

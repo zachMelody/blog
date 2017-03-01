@@ -10,17 +10,13 @@ class ArticleController extends Controller
     public function index()
     {
 
-        $articles = Article::paginate(6);
+        $articles = Article::latest()->paginate(6);
 
-        return view('article.index', [
-            'articles' => $articles
-        ]);
+        return view('article.index', ['articles' => $articles]);
     }
 
-    public function detail($id)
+    public function detail(Article $article)
     {
-
-        $article = Article::find($id);
 
         return view('article.detail', ['article' => $article]);
     }

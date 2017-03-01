@@ -15,7 +15,7 @@
                 <td>{{ $article->title }}</td>
                 <td>{{ $article->author }}</td>
                 <td><a href="{{ url('article/detail', ['id' => $article->id]) }}"> {{ $article->content }}</a></td>
-                <td>{{ $article->title }}</td>
+                <td>{{ date('Y-m-d', $article->created_at) }}</td>
             </tr>
         @endforeach
     </table>

@@ -22,5 +22,12 @@ class Article extends Model
         return $value;
     }
 
+    public function comments()
+    {
+
+        return $this->hasMany(Comment::class);
+    }
+
+
 
 }

@@ -17,18 +17,19 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'article'], function () {
 
-    Route::any('', 'ArticleController@index');
-    Route::any('detail/{id}', 'ArticleController@detail');
+    Route::get('/', 'ArticleController@index');
+    Route::any('detail/{article}', 'ArticleController@detail');
+    Route::post('detail/{article}/comments', 'CommentsController@create');
 
 
 });
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::any('index', 'AdminController@index');
+    Route::get('/', 'AdminController@index');
     Route::any('add', 'AdminController@add');
-    Route::any('modify/{id}', 'AdminController@modify');
-    Route::any('delete/{id}', 'AdminController@delete');
+    Route::any('modify/{article}', 'AdminController@modify');
+    Route::any('delete/{article}', 'AdminController@delete');
 
 });
 
