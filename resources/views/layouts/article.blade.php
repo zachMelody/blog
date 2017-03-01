@@ -6,10 +6,9 @@
 	<title>blog -- @yield('title')</title>
 </head>
 <body>
-<div>
     @section('content')
 
         @show
-</div>
+
 </body>
 </html>
