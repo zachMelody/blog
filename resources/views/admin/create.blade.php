@@ -2,8 +2,7 @@
     @section('title', '新增')
     @section('content')
         <div class="content">
-            <form method="post" action="">
-
+            <form method="POST" action="{{ url('admin/article') }}">
                 <div>
                     {{ csrf_field() }}
                     <label>标题</label>
@@ -23,10 +22,6 @@
 
 
             </form>
-            <div>
-                @foreach($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
-            </div>
+            @include('parts.errors')
         </div>
         @stop

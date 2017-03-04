@@ -23,7 +23,7 @@
 <div>
     <ul>
         @foreach($article->comments as $comment)
-            <h2><em>{{ $comment->created_at->diffForHumans() }}</em> ----by {{ $comment->user_id }} </h2>
+            <h2><em>{{ $comment->created_at->diffForHumans() }}</em>----by {{ $comment->user_id }} </h2>
             <li>{{ $comment->body }}</li>
         @endforeach
     </ul>

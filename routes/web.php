@@ -26,10 +26,21 @@ Route::group(['prefix' => 'article'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/', 'AdminController@index');
-    Route::any('add', 'AdminController@add');
-    Route::any('modify/{article}', 'AdminController@modify');
-    Route::any('delete/{article}', 'AdminController@delete');
+    Route::get('/index', 'AdminController@index');
+
+    /*
+    -------------------------------------------------
+    方法      路径               动作      路由名称
+    --------------------------------------------------
+    GET     /photos             index      photos.index
+    GET     /photos/create      create     photos.create
+    POST    /photos             store      photos.store
+    GET     /photos/{photo}     show       photos.show
+    GET     /photos/{photo}/edit    edit        photos.edit
+    PUT/PATCH  /photos/{photo}      update      photos.update
+    DELETE  /photos/{photo}         destroy     photos.destroy
+    */
+    Route::resource('article', 'AdminController');
 
 });
 

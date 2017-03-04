@@ -2,9 +2,9 @@
 @section('title', '修改')
 @section('content')
     <div class="content">
-        <form method="post" action="">
-
+        <form method="POST" action="{{ url('admin/article/'.$article->id) }}">
             <div>
+                {{ method_field('PUT') }}
                 {{ csrf_field() }}
                 <label>标题</label>
                 <input type="text" name="article[title]" id="title" value="{{ $article->title }}">
@@ -19,9 +19,7 @@
                 <textarea cols="100" rows="20" name="article[content]" id="content">{{ $article->content }}</textarea>
             </div>
             <input type="submit">
-
-
         </form>
-
+        @include('parts.errors')
     </div>
 @stop

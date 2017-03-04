@@ -19,8 +19,12 @@
                     <td>{{ $article->content }}</td>
                     <td>{{ $article->title }}</td>
                     <td>
-                        <a href="{{ url('admin/modify', ['id' => $article->id ]) }}">修改</a>
-                        <a href="{{ url('admin/delete', ['id' => $article-> id]) }}">删除</a>
+                        <a href="{{ url('admin/article/'.$article->id.'/edit') }}">修改</a>
+                        <form action="{{ url('admin/article/'.$article->id) }}" method="POST" style="display: inline;">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-danger">删除</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
