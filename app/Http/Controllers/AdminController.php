@@ -80,7 +80,7 @@ class AdminController extends Controller
     public function destroy(Article $article)
     {
 
-        if ($article->delete()) {
+        if ($article->deleteC() || $article->delete()) {
             return redirect('admin/index')->with('success', '删除成功');
         } else {
             return redirect('admin/index')->with('error', '删除失败');

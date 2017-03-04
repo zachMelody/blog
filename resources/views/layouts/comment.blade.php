@@ -6,6 +6,10 @@
             {{ csrf_field() }}
 
             <p><label>评论</label></p>
+            <div>
+                <label>Email或昵称</label>
+                <input type="text" name="user_id" id="user_id">
+            </div>
             <textarea cols="100" rows="20" name="body" id="body"></textarea>
 
         <input type="submit">
@@ -13,6 +17,7 @@
 
 
     </form>
+    @include('parts.alert')
     <div>
         @foreach($errors->all() as $error)
             <p>{{ $error }}</p>
@@ -28,4 +33,3 @@
         @endforeach
     </ul>
 </div>
-@include('layouts.alert')

@@ -17,7 +17,7 @@
                     <td>{{ $article->title }}</td>
                     <td>{{ $article->author }}</td>
                     <td>{{ $article->content }}</td>
-                    <td>{{ $article->title }}</td>
+                    <td>{{ date('Y-m-d', $article->created_at)   }}</td>
                     <td>
                         <a href="{{ url('admin/article/'.$article->id.'/edit') }}">修改</a>
                         <form action="{{ url('admin/article/'.$article->id) }}" method="POST" style="display: inline;">

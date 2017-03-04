@@ -28,6 +28,9 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
-
+    public function deleteC()
+    {
+        return($this->hasMany(Comment::class)->delete());
+    }
 
 }
